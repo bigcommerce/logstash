@@ -323,6 +323,8 @@ namespace "artifact" do
   end
 
   def package(platform, version, variant=:standard)
+    Rake::Task["vendor:package_gems"].invoke
+
     oss = variant == :oss
 
     require "stud/temporary"
