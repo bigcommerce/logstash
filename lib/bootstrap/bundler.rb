@@ -89,7 +89,6 @@ module LogStash
 
       # create Gemfile from template iff it does not exist
       unless ::File.exists?(Environment::GEMFILE_PATH)
-        puts "invoke create Gemfile from template | #{Environment::GEMFILE_PATH} | #{options[:gemfile_template]}"
         FileUtils.copy(
           ::File.join(Environment::LOGSTASH_HOME, options[:gemfile_template]), Environment::GEMFILE_PATH
         )
