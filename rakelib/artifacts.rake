@@ -453,7 +453,7 @@ namespace "artifact" do
     out.version = LOGSTASH_VERSION.gsub(/[.-]([[:alpha:]])/, '~\1')
     out.architecture = "all"
     # TODO(sissel): Include the git commit hash?
-    out.iteration = "1" # what revision?
+    out.iteration = "99bc" # what revision?
     out.url = "http://www.elasticsearch.org/overview/logstash/"
     out.description = "An extensible logging pipeline"
     out.vendor = "Elasticsearch"
