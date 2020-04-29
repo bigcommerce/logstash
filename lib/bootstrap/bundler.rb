@@ -76,7 +76,8 @@ module LogStash
     # @return [String, Exception] the installation captured output and any raised exception or nil if none
     def invoke!(options = {})
       options = {:max_tries => 10, :clean => false, :install => false, :update => false, :local => false,
-                 :jobs => 12, :all => false, :package => false, :without => [:development]}.merge(options)
+                 :jobs => 12, :all => false, :package => false, :without => [:development],
+                 :gemfile_template => 'Gemfile.template'}.merge(options)
       options[:without] = Array(options[:without])
       options[:update] = Array(options[:update]) if options[:update]
 
@@ -94,7 +95,7 @@ module LogStash
       # create Gemfile from template iff it does not exist
       unless ::File.exists?(Environment::GEMFILE_PATH)
         FileUtils.copy(
-          ::File.join(Environment::LOGSTASH_HOME, "Gemfile.template"), Environment::GEMFILE_PATH
+          ::File.join(Environment::LOGSTASH_HOME, options[:gemfile_template]), Environment::GEMFILE_PATH
         )
       end
       # create Gemfile.jruby-1.9.lock from template iff a template exists it itself does not exist
