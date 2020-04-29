@@ -385,6 +385,8 @@ namespace "artifact" do
   end
 
   def package(platform, version, variant=:standard)
+    Rake::Task["vendor:package_gems"].invoke
+
     oss = variant == :oss
 
     require "stud/temporary"
@@ -518,7 +520,7 @@ namespace "artifact" do
     out.version = "#{LOGSTASH_VERSION}#{PACKAGE_SUFFIX}".gsub(/[.-]([[:alpha:]])/, '~\1')
     out.architecture = "all"
     # TODO(sissel): Include the git commit hash?
-    out.iteration = "1" # what revision?
+    out.iteration = "2bc" # what revision?
     out.url = "http://www.elasticsearch.org/overview/logstash/"
     out.description = "An extensible logging pipeline"
     out.vendor = "Elasticsearch"
