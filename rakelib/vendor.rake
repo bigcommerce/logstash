@@ -38,6 +38,9 @@ namespace "vendor" do
     puts("Re-install bundler since we blew it away in the previous step and logstash needs it for plugin tasks")
     Rake::Task["gem:install"].execute(:name => "bundler", :requirement => "~> 2.1.4", :target => LogStash::Environment.logstash_gem_home)
 
+    puts("Re-install rake since we blew it away in the previous step and logstash needs it for plugin tasks")
+    Rake::Task["gem:install"].execute(:name => "rake", :requirement => "~> 12.2.1", :target => LogStash::Environment.logstash_gem_home)
+
     puts("Delete Gemfile and Gemfile.lock so the are recreated using the Gemfile.runtime_template")
     gemfiles = ['Gemfile', 'Gemfile.lock']
     File.delete(*gemfiles)
