@@ -309,8 +309,8 @@
     "skip-list": false
   },
   "logstash-input-imap": {
-    "default-plugins": true,
-    "skip-list": false
+    "default-plugins": false,
+    "skip-list": true
   },
   "logstash-input-java_input_example": {
     "default-plugins": false,
@@ -391,8 +391,8 @@
     "skip-list": false
   },
   "logstash-input-twitter": {
-    "default-plugins": true,
-    "skip-list": false
+    "default-plugins": false,
+    "skip-list": true
   },
   "logstash-input-udp": {
     "default-plugins": true,
@@ -432,8 +432,8 @@
     "skip-list": false
   },
   "logstash-output-email": {
-    "default-plugins": true,
-    "skip-list": false
+    "default-plugins": false,
+    "skip-list": true
   },
   "logstash-output-example": {
     "default-plugins": false,
